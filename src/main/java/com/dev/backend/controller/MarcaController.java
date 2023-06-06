@@ -3,7 +3,6 @@ package com.dev.backend.controller;
 import java.util.List;
 
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -15,33 +14,33 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.dev.backend.entity.Estado;
-import com.dev.backend.service.EstadoService;
+import com.dev.backend.entity.Marca;
+import com.dev.backend.service.MarcaService;
 
 @RestController
-@RequestMapping("/api/estado")
-public class EstadoController {
+@RequestMapping("/api/marca")
+public class MarcaController {
     @Autowired
-    private EstadoService estadoService;
+    private MarcaService marcaService;
 
     @PostMapping("/")
-    public Estado inserir (@RequestBody Estado estado){
-        return estadoService.inserir(estado);
+    public Marca inserir (@RequestBody Marca marca){
+        return marcaService.inserir(marca);
     }
 
     @GetMapping("/")
-    public List<Estado> buscarTodos() {
-        return estadoService.buscarTodos();
+    public List<Marca> buscarTodos() {
+        return marcaService.buscarTodos();
     }
 
     @PutMapping("/")
-    public Estado alterar(@RequestBody Estado estado) {
-        return estadoService.alterar(estado);
+    public Marca alterar(@RequestBody Marca marca) {
+        return marcaService.alterar(marca);
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> excluir(@PathVariable("id") Long id) {
-        estadoService.excluir(id);
+        marcaService.excluir(id);
         return ResponseEntity.ok().build();
     }
 
