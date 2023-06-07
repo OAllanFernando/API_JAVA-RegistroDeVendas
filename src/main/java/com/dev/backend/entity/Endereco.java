@@ -15,24 +15,23 @@ import javax.persistence.TemporalType;
 import lombok.Data;
 
 @Entity
-@Table(name ="endereco")
+@Table(name = "endereco")
 @Data
 public class Endereco {
 
     @Id
-    @GeneratedValue(strategy =  GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String cep;
     private Long numero;
     private String rua;
     @ManyToOne
-    @JoinColumn(name = "idPessoa")
+    @JoinColumn(name = "id_pessoa")
     private Pessoa pessoa;
-
 
     @Temporal(TemporalType.TIMESTAMP)
     private Date dataCriacao;
     @Temporal(TemporalType.TIMESTAMP)
     private Date dataAtualizacao;
-    
+
 }

@@ -15,19 +15,23 @@ import javax.persistence.TemporalType;
 import lombok.Data;
 
 @Entity
-@Table(name = "bairro")
+@Table(name = "carrinho")
 @Data
-public class Bairro {
+public class Carrinho {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private String nome;
-    @ManyToOne
-    @JoinColumn(name = "id_cidade")
-    private Cidade cidade;
+    private String situacao;
+    private String observacao;
 
+    @ManyToOne
+    @JoinColumn(name = "id_pessoa")
+    private Pessoa pessoa;
+
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date dataCompra;
     @Temporal(TemporalType.TIMESTAMP)
     private Date dataCriacao;
     @Temporal(TemporalType.TIMESTAMP)
