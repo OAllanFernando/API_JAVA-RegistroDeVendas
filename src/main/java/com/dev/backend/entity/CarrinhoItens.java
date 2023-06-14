@@ -23,7 +23,7 @@ public class CarrinhoItens {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private double valor;
+    
     private Integer quantidade;
     private String observacao;
 

@@ -13,14 +13,13 @@ import javax.persistence.TemporalType;
 import lombok.Data;
 
 @Entity
-@Table(name ="estado")
+@Table(name = "estado")
 @Data
 public class Estado {
 
     @Id
-    @GeneratedValue(strategy =  GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-
 
     private String nome;
     private String sigla;
@@ -28,5 +27,5 @@ public class Estado {
     private Date dataCriacao;
     @Temporal(TemporalType.TIMESTAMP)
     private Date dataAtualizacao;
-    
+
 }

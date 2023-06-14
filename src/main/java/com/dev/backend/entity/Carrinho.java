@@ -25,6 +25,7 @@ public class Carrinho {
 
     private String situacao;
     private String observacao;
+    private double valor;
 
     @ManyToOne
     @JoinColumn(name = "id_pessoa")
