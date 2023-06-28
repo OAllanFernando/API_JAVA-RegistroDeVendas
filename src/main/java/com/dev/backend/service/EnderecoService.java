@@ -37,4 +37,8 @@ public class EnderecoService {
         
     }
 
+    public List<Endereco> enderecoPorPessoa(Long idPessoa){
+        return enderecoRepository.enderecoPorPessoa(idPessoa);
+    }
+
 }

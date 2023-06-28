@@ -37,4 +37,8 @@ public class PessoaService {
         
     }
 
+    public List<Pessoa> buscarPessoaPorNome(String nome){
+        return pessoaRepository.buscaPessoaPorNome(nome);
+    }
+
 }

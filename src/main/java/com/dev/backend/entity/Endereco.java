@@ -28,6 +28,9 @@ public class Endereco {
     @ManyToOne
     @JoinColumn(name = "id_pessoa")
     private Pessoa pessoa;
+    @ManyToOne
+    @JoinColumn(name = "id_bairro")
+    private Bairro bairro;
 
     @Temporal(TemporalType.TIMESTAMP)
     private Date dataCriacao;

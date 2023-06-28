@@ -9,5 +9,6 @@ import com.dev.backend.entity.Pessoa;
 
 public interface PessoaClienteRepository extends JpaRepository<Pessoa, Long> {
 
+
     List<Permissao> findByNome(String nome);
 }

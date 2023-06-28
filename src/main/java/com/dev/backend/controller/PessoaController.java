@@ -2,7 +2,7 @@ package com.dev.backend.controller;
 
 import java.util.List;
 
-
+import javax.websocket.server.PathParam;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -15,7 +15,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.dev.backend.entity.Endereco;
 import com.dev.backend.entity.Pessoa;
+import com.dev.backend.service.EnderecoService;
 import com.dev.backend.service.PessoaService;
 
 @RestController
@@ -23,6 +25,7 @@ import com.dev.backend.service.PessoaService;
 public class PessoaController {
     @Autowired
     private PessoaService pessoaService;
+    private EnderecoService enderecoService;
 
     @PostMapping("/")
     public Pessoa inserir (@RequestBody Pessoa pessoa){
@@ -44,5 +47,15 @@ public class PessoaController {
         pessoaService.excluir(id);
         return ResponseEntity.ok().build();
     }
+    // localhost:8080/api/pessoa/nome-pessoa?nome=Fulano Fernando
+    @GetMapping("/nome-pessoa")
+    public List<Pessoa> buscarPessoaPorNome(@PathParam("nome") String nome) {
+        return pessoaService.buscarPessoaPorNome(nome);
+    }
+
+    @GetMapping("/pessoa/{id}")
+    public List<Endereco> buscarPessoaPorEndereco (@PathParam("id") Long id) {
+        return enderecoService.enderecoPorPessoa(id);
+        }
 
 }
