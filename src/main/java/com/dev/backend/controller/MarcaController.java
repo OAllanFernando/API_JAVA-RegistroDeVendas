@@ -2,6 +2,7 @@ package com.dev.backend.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -24,7 +25,7 @@ public class MarcaController {
     private MarcaService marcaService;
 
     @PostMapping("/")
-    public Marca inserir (@RequestBody Marca marca){
+    public Marca inserir(@Valid @RequestBody Marca marca) {
         return marcaService.inserir(marca);
     }
 

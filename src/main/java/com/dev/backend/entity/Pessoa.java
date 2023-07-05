@@ -14,6 +14,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 import lombok.AccessLevel;
 import lombok.Data;
@@ -28,9 +30,13 @@ public class Pessoa {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @NotBlank(message = "{nome.not.blank}")
+    @NotNull
     private String nome;
+    @NotBlank(message = "{email.not.blank}")
     private String email;
     private String senha;
+    @NotBlank(message = "{cpf.not.blank}")
     private String cpf;
 
     @ManyToOne

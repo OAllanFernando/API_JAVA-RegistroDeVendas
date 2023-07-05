@@ -2,6 +2,8 @@ package com.dev.backend.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -23,7 +25,7 @@ public class ProdutoController {
     private ProdutoService produtoService;
 
     @PostMapping("/")
-    public Produto inserir(@RequestBody Produto produto) {
+    public Produto inserir(@Valid @RequestBody Produto produto) {
         return produtoService.inserir(produto);
     }
 

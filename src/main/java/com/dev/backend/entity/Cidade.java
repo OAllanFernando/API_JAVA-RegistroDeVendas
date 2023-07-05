@@ -11,6 +11,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.NotBlank;
 
 import lombok.Data;
 
@@ -22,7 +23,7 @@ public class Cidade {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-
+    @NotBlank(message = "{nome.not.blank}")
     private String nome;
     @ManyToOne
     @JoinColumn(name = "id_estado")

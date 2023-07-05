@@ -9,6 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.NotBlank;
 
 import lombok.Data;
 
@@ -20,7 +21,7 @@ public class Estado {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-
+    @NotBlank(message = "{nome.not.blank}")
     private String nome;
     private String sigla;
     @Temporal(TemporalType.TIMESTAMP)

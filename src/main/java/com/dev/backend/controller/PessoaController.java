@@ -2,6 +2,7 @@ package com.dev.backend.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
 import javax.websocket.server.PathParam;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +29,7 @@ public class PessoaController {
     private EnderecoService enderecoService;
 
     @PostMapping("/")
-    public Pessoa inserir (@RequestBody Pessoa pessoa){
+    public Pessoa inserir(@Valid @RequestBody Pessoa pessoa) {
         return pessoaService.inserir(pessoa);
     }
 
@@ -47,6 +48,7 @@ public class PessoaController {
         pessoaService.excluir(id);
         return ResponseEntity.ok().build();
     }
+
     // localhost:8080/api/pessoa/nome-pessoa?nome=Fulano Fernando
     @GetMapping("/nome-pessoa")
     public List<Pessoa> buscarPessoaPorNome(@PathParam("nome") String nome) {
@@ -54,8 +56,8 @@ public class PessoaController {
     }
 
     @GetMapping("/pessoa/{id}")
-    public List<Endereco> buscarPessoaPorEndereco (@PathParam("id") Long id) {
+    public List<Endereco> buscarPessoaPorEndereco(@PathParam("id") Long id) {
         return enderecoService.enderecoPorPessoa(id);
-        }
+    }
 
 }

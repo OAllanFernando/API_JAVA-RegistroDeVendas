@@ -2,6 +2,7 @@ package com.dev.backend.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -24,7 +25,7 @@ public class BairroController {
     private BairroService bairroService;
 
     @PostMapping("/")
-    public Bairro inserir (@RequestBody Bairro bairro){
+    public Bairro inserir(@Valid @RequestBody Bairro bairro) {
         return bairroService.inserir(bairro);
     }
 
