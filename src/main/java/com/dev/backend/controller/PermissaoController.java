@@ -2,7 +2,7 @@ package com.dev.backend.controller;
 
 import java.util.List;
 
-import javax.validation.Valid;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -15,33 +15,33 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.dev.backend.entity.Marca;
-import com.dev.backend.service.MarcaService;
+import com.dev.backend.entity.Permissao;
+import com.dev.backend.service.PermissaoService;
 
 @RestController
-@RequestMapping("/api/marca")
-public class MarcaController {
+@RequestMapping("/api/permissao")
+public class PermissaoController {
     @Autowired
-    private MarcaService marcaService;
+    private PermissaoService permissaoService;
 
     @PostMapping("/")
-    public Marca inserir(@Valid @RequestBody Marca marca) {
-        return marcaService.inserir(marca);
+    public Permissao inserir (@RequestBody Permissao permissao){
+        return permissaoService.inserir(permissao);
     }
 
     @GetMapping("/")
-    public List<Marca> buscarTodos() {
-        return marcaService.buscarTodos();
+    public List<Permissao> buscarTodos() {
+        return permissaoService.buscarTodos();
     }
 
     @PutMapping("/")
-    public Marca alterar(@RequestBody Marca marca) {
-        return marcaService.alterar(marca);
+    public Permissao alterar(@RequestBody Permissao permissao) {
+        return permissaoService.alterar(permissao);
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> excluir(@PathVariable("id") Long id) {
-        marcaService.excluir(id);
+        permissaoService.excluir(id);
         return ResponseEntity.ok().build();
     }
 

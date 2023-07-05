@@ -15,33 +15,33 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.dev.backend.entity.Marca;
-import com.dev.backend.service.MarcaService;
+import com.dev.backend.entity.Bairro;
+import com.dev.backend.service.BairroService;
 
 @RestController
-@RequestMapping("/api/marca")
-public class MarcaController {
+@RequestMapping("/api/bairro")
+public class BairroController {
     @Autowired
-    private MarcaService marcaService;
+    private BairroService bairroService;
 
     @PostMapping("/")
-    public Marca inserir(@Valid @RequestBody Marca marca) {
-        return marcaService.inserir(marca);
+    public Bairro inserir(@Valid @RequestBody Bairro bairro) {
+        return bairroService.inserir(bairro);
     }
 
     @GetMapping("/")
-    public List<Marca> buscarTodos() {
-        return marcaService.buscarTodos();
+    public List<Bairro> buscarTodos() {
+        return bairroService.buscarTodos();
     }
 
     @PutMapping("/")
-    public Marca alterar(@RequestBody Marca marca) {
-        return marcaService.alterar(marca);
+    public Bairro alterar(@RequestBody Bairro bairro) {
+        return bairroService.alterar(bairro);
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> excluir(@PathVariable("id") Long id) {
-        marcaService.excluir(id);
+        bairroService.excluir(id);
         return ResponseEntity.ok().build();
     }
 

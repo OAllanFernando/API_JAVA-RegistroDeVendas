@@ -2,6 +2,7 @@ package com.dev.backend.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -24,7 +25,7 @@ public class CategoriaController {
     private CategoriaService categoriaService;
 
     @PostMapping("/")
-    public Categoria inserir (@RequestBody Categoria categoria){
+    public Categoria inserir(@Valid @RequestBody Categoria categoria) {
         return categoriaService.inserir(categoria);
     }
 

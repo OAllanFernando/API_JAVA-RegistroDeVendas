@@ -2,8 +2,6 @@ package com.dev.backend.controller;
 
 import java.util.List;
 
-import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -15,33 +13,33 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.dev.backend.entity.Marca;
-import com.dev.backend.service.MarcaService;
+import com.dev.backend.entity.CarrinhoItens;
+import com.dev.backend.service.CarrinhoItensService;
 
 @RestController
-@RequestMapping("/api/marca")
-public class MarcaController {
+@RequestMapping("/api/carrinhoitens")
+public class CarrinhoItensController {
     @Autowired
-    private MarcaService marcaService;
+    private CarrinhoItensService carrinhoItensService;
 
     @PostMapping("/")
-    public Marca inserir(@Valid @RequestBody Marca marca) {
-        return marcaService.inserir(marca);
+    public CarrinhoItens inserir(@RequestBody CarrinhoItens carrinhoItens) {
+        return carrinhoItensService.inserir(carrinhoItens);
     }
 
     @GetMapping("/")
-    public List<Marca> buscarTodos() {
-        return marcaService.buscarTodos();
+    public List<CarrinhoItens> buscarTodos() {
+        return carrinhoItensService.buscarTodos();
     }
 
     @PutMapping("/")
-    public Marca alterar(@RequestBody Marca marca) {
-        return marcaService.alterar(marca);
+    public CarrinhoItens alterar(@RequestBody CarrinhoItens carrinhoItens) {
+        return carrinhoItensService.alterar(carrinhoItens);
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> excluir(@PathVariable("id") Long id) {
-        marcaService.excluir(id);
+        carrinhoItensService.excluir(id);
         return ResponseEntity.ok().build();
     }
 

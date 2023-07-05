@@ -6,6 +6,4 @@ import com.dev.backend.entity.Marca;
 
 public interface MarcaRepository extends JpaRepository<Marca, Long> {
 
-    
-    
 }

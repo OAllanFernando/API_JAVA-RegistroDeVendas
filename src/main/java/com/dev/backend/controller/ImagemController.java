@@ -2,7 +2,7 @@ package com.dev.backend.controller;
 
 import java.util.List;
 
-import javax.validation.Valid;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -15,33 +15,33 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.dev.backend.entity.Marca;
-import com.dev.backend.service.MarcaService;
+import com.dev.backend.entity.Imagem;
+import com.dev.backend.service.ImagemService;
 
 @RestController
-@RequestMapping("/api/marca")
-public class MarcaController {
+@RequestMapping("/api/imagem")
+public class ImagemController {
     @Autowired
-    private MarcaService marcaService;
+    private ImagemService imagemService;
 
     @PostMapping("/")
-    public Marca inserir(@Valid @RequestBody Marca marca) {
-        return marcaService.inserir(marca);
+    public Imagem inserir (@RequestBody Imagem imagem){
+        return imagemService.inserir(imagem);
     }
 
     @GetMapping("/")
-    public List<Marca> buscarTodos() {
-        return marcaService.buscarTodos();
+    public List<Imagem> buscarTodos() {
+        return imagemService.buscarTodos();
     }
 
     @PutMapping("/")
-    public Marca alterar(@RequestBody Marca marca) {
-        return marcaService.alterar(marca);
+    public Imagem alterar(@RequestBody Imagem imagem) {
+        return imagemService.alterar(imagem);
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> excluir(@PathVariable("id") Long id) {
-        marcaService.excluir(id);
+        imagemService.excluir(id);
         return ResponseEntity.ok().build();
     }
 

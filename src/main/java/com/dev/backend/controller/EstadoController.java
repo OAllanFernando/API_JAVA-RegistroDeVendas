@@ -2,7 +2,7 @@ package com.dev.backend.controller;
 
 import java.util.List;
 
-
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -25,7 +25,7 @@ public class EstadoController {
     private EstadoService estadoService;
 
     @PostMapping("/")
-    public Estado inserir (@RequestBody Estado estado){
+    public Estado inserir(@Valid @RequestBody Estado estado) {
         return estadoService.inserir(estado);
     }
 
