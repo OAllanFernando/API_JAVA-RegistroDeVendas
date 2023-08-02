@@ -17,6 +17,8 @@ import javax.persistence.TemporalType;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
+import org.hibernate.validator.constraints.br.CPF;
+
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.Setter;
@@ -37,6 +39,7 @@ public class Pessoa {
     private String email;
     private String senha;
     @NotBlank(message = "{cpf.not.blank}")
+    @CPF
     private String cpf;
 
     @ManyToOne
